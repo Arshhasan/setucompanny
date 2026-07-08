@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
@@ -139,23 +139,20 @@ function ViewMoreArrow({ href, className = '' }) {
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState(0)
   const [visibleCards, setVisibleCards] = useState(6)
-  const videoRef = useRef(null)
 
   return (
     <div>
       {/* ===== HERO BANNER ===== */}
       <section className="home_banner relative overflow-hidden">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="w-full block"
-          style={{ minHeight: '400px', objectFit: 'cover' }}
-        >
-          <source src="https://mectech.co.in/public/f/images/home_new_video.mp4" type="video/mp4" />
-        </video>
+        <picture>
+          <source media="(max-width: 767px)" srcSet="/Oleochemical.png" />
+          <img
+            src="/desktop.png"
+            alt="Setu Industrial Partners oleochemical plant"
+            className="w-full block"
+            style={{ minHeight: '400px', maxHeight: '90vh', objectFit: 'cover' }}
+          />
+        </picture>
         <div className="new_banner_text absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center z-10 w-full px-5">
           <motion.h2
             initial={{ opacity: 0, y: -48 }}

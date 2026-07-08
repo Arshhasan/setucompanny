@@ -60,8 +60,8 @@ export default function App() {
         <Suspense fallback={<Loading />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/about-us" element={<AboutPage />} />
-            <Route path="/why-mectech" element={<WhyMectechPage />} />
+            {/* <Route path="/about-us" element={<AboutPage />} /> */}
+            {/* <Route path="/why-mectech" element={<WhyMectechPage />} /> */}
             <Route path="/people" element={<PeoplePage />} />
             <Route path="/infrastructure" element={<InfrastructurePage />} />
             <Route path="/sustainablity" element={<SustainabilityPage />} />
