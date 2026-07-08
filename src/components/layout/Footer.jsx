@@ -9,7 +9,6 @@ const footerCols = [
       { label: 'About Mectech', href: '/about-us' },
       { label: 'Why Mectech', href: '/why-mectech' },
       { label: 'Event & Exhibitions', href: '/event-exhibitions' },
-      { label: 'Career', href: '/career' },
       { label: 'Clientele', href: '/clients' },
     ],
   },

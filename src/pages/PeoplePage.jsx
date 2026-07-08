@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import PageHero from '../components/ui/PageHero'
-import { Link } from 'react-router-dom'
 
 function AnimSection({ children, className = '', delay = 0 }) {
   const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true })
@@ -86,15 +85,9 @@ export default function PeoplePage() {
           <AnimSection>
             <h2 className="text-[30px] font-bold mb-4">Life at Setu</h2>
             <h4 className="text-[48px] font-bold text-accent mb-6">A Culture of Excellence</h4>
-            <p className="text-[15px] leading-[21px] mb-8">
+            <p className="text-[15px] leading-[21px]">
               At Setu Industrial Partners, our people are our greatest asset. We foster a culture of continuous learning, innovation, and collaboration. From engineers to management, every team member plays a vital role in delivering exceptional results for our clients.
             </p>
-            <Link
-              to="/career"
-              className="inline-block border border-accent text-accent px-8 py-3 text-sm font-bold hover:bg-accent hover:text-black transition-colors"
-            >
-              Explore Careers at Setu
-            </Link>
           </AnimSection>
         </div>
       </section>

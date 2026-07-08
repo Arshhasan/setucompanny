@@ -20,7 +20,7 @@ const EnquiryPage = lazy(() => import('./pages/EnquiryPage'))
 const BlogPage = lazy(() => import('./pages/BlogPage'))
 const MediaPage = lazy(() => import('./pages/MediaPage'))
 const VideoPage = lazy(() => import('./pages/VideoPage'))
-const CareerPage = lazy(() => import('./pages/CareerPage'))
+// const CareerPage = lazy(() => import('./pages/CareerPage'))
 
 function Loading() {
   return (
@@ -72,7 +72,7 @@ export default function App() {
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/media" element={<MediaPage />} />
             <Route path="/video" element={<VideoPage />} />
-            <Route path="/career" element={<CareerPage />} />
+            {/* <Route path="/career" element={<CareerPage />} /> */}
             {/* Tech detail pages via dynamic route */}
             <Route path="/:slug" element={<TechnologyDetailPage />} />
             {/* Catch all */}

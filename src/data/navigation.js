@@ -6,7 +6,7 @@ export const navLinks = [
       { label: 'About Us', href: '/about-us' },
       // { label: 'Why Mectech', href: '/why-mectech' },
       // { label: 'Event & Exhibitions', href: '/event-exhibitions' },
-      { label: 'Career', href: '/career' },
+      // { label: 'Career', href: '/career' },
       // { label: 'Clientele', href: '/clients' },
       { label: 'People', href: '/people' },
       // { label: 'Sustainability', href: '/sustainablity' },
