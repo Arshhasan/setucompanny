@@ -5,11 +5,11 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#003055',
-          dark: '#001f38',
-          light: '#004a80',
+          DEFAULT: '#0C3B2E',
+          dark: '#07281F',
+          light: '#155C46',
         },
-        blubrand: '#0077B5',
+        blubrand: '#1E9E5F',
         accent: {
           DEFAULT: '#FFB300',
           bright: '#FFDD00',

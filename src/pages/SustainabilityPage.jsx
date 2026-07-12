@@ -2,8 +2,6 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import PageHero from '../components/ui/PageHero'
 
-const BASE = 'https://mectech.co.in/public/f/images/'
-
 function AnimSection({ children, className = '', delay = 0 }) {
   const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true })
   return (
@@ -16,7 +14,7 @@ function AnimSection({ children, className = '', delay = 0 }) {
 export default function SustainabilityPage() {
   return (
     <div>
-      <PageHero title="SUSTAINABILITY" breadcrumb="Home / Sustainability" bgImage={BASE + 'Sustainabilityimages.jpg'} />
+      <PageHero title="SUSTAINABILITY" breadcrumb="Home / Sustainability" />
 
       <section className="py-[70px] bg-white">
         <div className="container mx-auto px-4 max-w-7xl">
@@ -24,7 +22,7 @@ export default function SustainabilityPage() {
             <h2 className="text-[30px] font-bold text-black mb-4">Sustainable Solutions, Lasting Impact</h2>
             <h4 className="text-[48px] font-bold text-blubrand mb-6">Our Commitment to Sustainability</h4>
             <p className="text-[15px] text-body leading-[21px]">
-              In a world increasingly conscious of its environmental impact, Mectech Process Engineers Pvt. Ltd. takes the lead in marrying innovation with sustainability. Our plants are designed to minimize environmental impact while maximizing efficiency.
+              Sustainability guides how Setu Industrial Partners evaluates and recommends technology. When we consult, source and procure, we favour solutions that reduce energy use, cut waste and support the shift to renewables — because a plant that runs clean also runs profitably.
             </p>
           </AnimSection>
         </div>
@@ -34,12 +32,12 @@ export default function SustainabilityPage() {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: 'Energy Efficiency', desc: 'Our plants incorporate heat recovery systems, vapor recompression, and advanced insulation to minimize energy consumption and reduce carbon footprint.', icon: '⚡' },
-              { title: 'Zero Liquid Discharge', desc: 'We design plants with water recycling and effluent treatment systems to achieve zero liquid discharge, protecting local water bodies.', icon: '💧' },
-              { title: 'Waste Minimization', desc: 'Our processes are designed to minimize waste generation and maximize utilization of by-products including spent earth oil recovery and glycerin from biodiesel.', icon: '♻️' },
-              { title: 'Bio-Diesel Promotion', desc: 'Mectech actively promotes renewable energy by manufacturing bio-diesel plants that convert waste oils and fats into clean-burning fuel.', icon: '🌱' },
-              { title: 'Green Building', desc: 'Our manufacturing facilities are designed to minimize environmental impact with natural lighting, rainwater harvesting, and energy-efficient systems.', icon: '🏗️' },
-              { title: 'Social Responsibility', desc: 'Through the Raghunath Sahai Charitable Trust, Mectech invests in education and community development initiatives.', icon: '❤️' },
+              { title: 'Energy Efficiency', desc: 'We prioritise technologies with heat recovery, vapor recompression and efficient insulation, so the plants we help build consume less energy and carry a smaller carbon footprint.', icon: '⚡' },
+              { title: 'Zero Liquid Discharge', desc: 'We recommend water recycling and effluent treatment systems that work toward zero liquid discharge, protecting local water bodies.', icon: '💧' },
+              { title: 'Waste Minimization', desc: 'We favour processes that minimize waste and put by-products to work — from spent earth oil recovery to glycerin from biodiesel production.', icon: '♻️' },
+              { title: 'Bio-Diesel Promotion', desc: 'We actively support renewable energy by sourcing biodiesel plant solutions that convert waste oils and fats into clean-burning fuel.', icon: '🌱' },
+              { title: 'Greener Plants', desc: 'We encourage plant designs that reduce environmental impact through natural lighting, rainwater harvesting and energy-efficient utilities.', icon: '🏗️' },
+              { title: 'Social Responsibility', desc: 'We believe industry should give back — supporting education and skill development in the communities where our projects are built.', icon: '❤️' },
             ].map((item, i) => (
               <AnimSection key={i} delay={i * 0.1}>
                 <div className="bg-white p-8 text-center shadow-sm hover:shadow-lg transition-all duration-300">

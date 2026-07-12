@@ -4,7 +4,6 @@ export const navLinks = [
     type: 'dropdown',
     items: [
       { label: 'About Us', href: '/about-us' },
-      // { label: 'Why Mectech', href: '/why-mectech' },
       // { label: 'Event & Exhibitions', href: '/event-exhibitions' },
       // { label: 'Career', href: '/career' },
       // { label: 'Clientele', href: '/clients' },
@@ -76,7 +75,7 @@ export const navLinks = [
       {
         title: 'Filtration',
         items: [
-          // { label: 'Mecklear Gravity Filter', href: '/mecklear-gravity-filteration-process' },
+          
           { label: 'Vertical Pressure Leaf Filter', href: '/vertical-pressure-leaf-filter' },
           { label: 'Horizontal Pressure Leaf Filter', href: '/horizontal-pressure-leaf-filter' },
           { label: 'Shining Filtration', href: '/shining-filter' },
@@ -112,7 +111,6 @@ export const navLinks = [
 export const mobileNavLinks = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about-us' },
-  { label: 'Why Mectech', href: '/why-mectech' },
   { label: 'Technology', href: '/technology' },
   { label: 'Services', href: '/services-support' },
   { label: 'Spares', href: '/spares' },

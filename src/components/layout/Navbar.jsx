@@ -41,8 +41,8 @@ export default function Navbar() {
   }, [mobileOpen])
 
   const linkBase =
-    'relative flex items-center px-[15px] py-[24px] text-[12.5px] uppercase tracking-[2px] font-semibold text-[#003055] transition-colors hover:text-[#0077B5] ' +
-    "after:content-[''] after:absolute after:left-[15px] after:right-[15px] after:bottom-[16px] after:h-[2px] after:bg-[#0077B5] after:rounded-full " +
+    'relative flex items-center px-[15px] py-[24px] text-[12.5px] uppercase tracking-[2px] font-semibold text-[#0C3B2E] transition-colors hover:text-[#1E9E5F] ' +
+    "after:content-[''] after:absolute after:left-[15px] after:right-[15px] after:bottom-[16px] after:h-[2px] after:bg-[#1E9E5F] after:rounded-full " +
     'after:origin-left after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100'
 
   return (
@@ -87,7 +87,7 @@ export default function Navbar() {
                 {/* Simple Dropdown */}
                 {item.type === 'dropdown' && activeDropdown === idx && (
                   <div className="absolute top-full left-0 pt-2 z-[9999]">
-                    <div className="bg-white/95 backdrop-blur-xl min-w-[240px] py-3 rounded-2xl shadow-[0_20px_50px_rgba(0,48,85,0.18)] ring-1 ring-black/5 overflow-hidden animate-menuIn">
+                    <div className="bg-white/95 backdrop-blur-xl min-w-[240px] py-3 rounded-2xl shadow-[0_20px_50px_rgba(12,59,46,0.18)] ring-1 ring-black/5 overflow-hidden animate-menuIn">
                       {item.items.map((sub, si) => (
                         <div key={si} className="px-2">
                           {sub.external ? (
@@ -95,14 +95,14 @@ export default function Navbar() {
                               href={sub.href}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="block px-4 py-2.5 text-sm text-[#292929] rounded-lg hover:bg-[#0077B5]/[0.07] hover:text-[#0077B5] transition-colors"
+                              className="block px-4 py-2.5 text-sm text-[#292929] rounded-lg hover:bg-[#1E9E5F]/[0.07] hover:text-[#1E9E5F] transition-colors"
                             >
                               {sub.label}
                             </a>
                           ) : (
                             <Link
                               to={sub.href}
-                              className="block px-4 py-2.5 text-sm text-[#292929] rounded-lg hover:bg-[#0077B5]/[0.07] hover:text-[#0077B5] transition-colors"
+                              className="block px-4 py-2.5 text-sm text-[#292929] rounded-lg hover:bg-[#1E9E5F]/[0.07] hover:text-[#1E9E5F] transition-colors"
                             >
                               {sub.label}
                             </Link>
@@ -116,11 +116,11 @@ export default function Navbar() {
                 {/* Mega Menu */}
                 {item.type === 'mega' && activeMega === idx && (
                   <div className="fixed left-1/2 -translate-x-1/2 top-auto pt-2 z-[9999] w-[min(1240px,calc(100vw-48px))]">
-                    <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_30px_70px_rgba(0,48,85,0.22)] ring-1 ring-black/5 py-8 px-9 animate-menuIn">
+                    <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_30px_70px_rgba(12,59,46,0.22)] ring-1 ring-black/5 py-8 px-9 animate-menuIn">
                       <div className="grid grid-cols-6 gap-x-8 gap-y-6">
                         {item.columns.map((col, ci) => (
                           <div key={ci}>
-                            <h4 className="text-[#0077B5] text-[11px] font-bold uppercase tracking-[1.5px] mb-3 pb-2 border-b-2 border-[#FFB300]/70">
+                            <h4 className="text-[#1E9E5F] text-[11px] font-bold uppercase tracking-[1.5px] mb-3 pb-2 border-b-2 border-[#FFB300]/70">
                               {col.title}
                             </h4>
                             <ul>
@@ -128,7 +128,7 @@ export default function Navbar() {
                                 <li key={si}>
                                   <Link
                                     to={sub.href}
-                                    className="group flex items-center gap-0 py-[5px] text-[12.5px] text-[#4a5568] hover:text-[#003055] transition-all"
+                                    className="group flex items-center gap-0 py-[5px] text-[12.5px] text-[#4a5568] hover:text-[#0C3B2E] transition-all"
                                   >
                                     <span className="w-0 group-hover:w-2.5 h-[2px] bg-[#FFB300] rounded-full transition-all duration-200 group-hover:mr-1.5" />
                                     {sub.label}
@@ -174,22 +174,22 @@ export default function Navbar() {
 
       {/* Mobile Slide-in Nav */}
       <div
-        className={`fixed right-0 top-0 bg-white/90 backdrop-blur-2xl w-[340px] h-screen z-[1000] flex flex-col justify-center items-start px-10 shadow-[-20px_0_60px_rgba(0,48,85,0.15)] ${mobileOpen ? 'translate-x-0 opacity-100' : 'translate-x-[340px] opacity-0'}`}
+        className={`fixed right-0 top-0 bg-white/90 backdrop-blur-2xl w-[340px] h-screen z-[1000] flex flex-col justify-center items-start px-10 shadow-[-20px_0_60px_rgba(12,59,46,0.15)] ${mobileOpen ? 'translate-x-0 opacity-100' : 'translate-x-[340px] opacity-0'}`}
         style={{ transition: 'all 900ms cubic-bezier(0.9, 0, 0.33, 1)' }}
       >
         <button
           onClick={() => setMobileOpen(false)}
-          className="absolute top-6 right-6 text-[#003055] text-2xl bg-transparent border-0 cursor-pointer"
+          className="absolute top-6 right-6 text-[#0C3B2E] text-2xl bg-transparent border-0 cursor-pointer"
           aria-label="Close menu"
         >
           ✕
         </button>
-        <ul className="w-full border-t border-b border-[#0077B5]/20 py-10 relative before:content-[''] before:absolute before:-top-[2px] before:left-0 before:w-[66px] before:h-[3px] before:bg-[#FFB300] before:rounded-full">
+        <ul className="w-full border-t border-b border-[#1E9E5F]/20 py-10 relative before:content-[''] before:absolute before:-top-[2px] before:left-0 before:w-[66px] before:h-[3px] before:bg-[#FFB300] before:rounded-full">
           {mobileNavLinks.map((item, i) => (
             <li key={i} className="mb-6">
               <Link
                 to={item.href}
-                className="text-[#003055] hover:text-[#0077B5] text-base font-semibold tracking-wide"
+                className="text-[#0C3B2E] hover:text-[#1E9E5F] text-base font-semibold tracking-wide"
                 onClick={() => setMobileOpen(false)}
               >
                 {item.label}

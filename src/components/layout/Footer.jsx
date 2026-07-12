@@ -6,9 +6,7 @@ const footerCols = [
     title: 'ABOUT US',
     titleHref: '/about-us',
     links: [
-      { label: 'About Mectech', href: '/about-us' },
-      { label: 'Why Mectech', href: '/why-mectech' },
-      { label: 'Event & Exhibitions', href: '/event-exhibitions' },
+      { label: 'About Setu', href: '/about-us' },
       { label: 'Clientele', href: '/clients' },
     ],
   },
@@ -20,7 +18,7 @@ const footerCols = [
       { label: 'Oil & Fats Refining', href: '/vegetable-oil-refinery-plant' },
       { label: 'Oil Processing', href: '/palm-oil-refining-plant' },
       { label: 'Oleo Chemical', href: '/glycerine-refining-plant' },
-      { label: 'Filtration', href: '/mecklear-gravity-filteration-process' },
+      { label: 'Filtration', href: '/gravity-filtration-process' },
       { label: 'Bio-Diesel', href: '/bio-diesel-manufacturing-plant' },
       { label: 'Pilot Plant', href: '/pilot-plant-manufacturer' },
       { label: 'Value added Projects / Plants', href: '/bakery-shortening-margarine' },
@@ -131,20 +129,20 @@ export default function Footer() {
                 </Link>
                 
 
-                {/* <h3 className="text-[13px] text-primary font-bold mb-5 uppercase">Mectech Corporate Office</h3> */}
-                {/* <p className="text-xs text-body font-cairo mb-4">366, Phase - 2, Udyog Vihar, Gurgaon-122 016, Haryana, India.</p> */}
+                <h3 className="text-[13px] text-primary font-bold mb-5 uppercase">Setu Industrial Partners</h3>
+                <p className="text-xs text-body font-cairo mb-4">Faridabad, Haryana, India</p>
                 <ul className="border-b border-white/30 pb-6 mb-7">
                   <li className="flex items-center text-xs text-body mb-3">
                     <figure className="w-[9px] h-[9px] mr-[15px] flex-shrink-0">
                       <img src="/assets/images/Icon-awesome-phone.svg" alt="" className="w-full" />
                     </figure>
-                    <a href="tel:+91-0124-4700800" className="text-body hover:text-[#d06060]">+91-(9999982065) </a>
+                    <a href="tel:+919999982065" className="text-body hover:text-[#d06060]">+91-(9999982065) </a>
                   </li>
                   <li className="flex items-center text-xs text-body">
                     <figure className="w-[9px] h-[9px] mr-[15px] flex-shrink-0">
                       <img src="/assets/images/Icon-material-email.svg" alt="" className="w-full" />
                     </figure>
-                    <a href="mailto:enquiries@mectech.co.in" className="text-body hover:text-[#d06060]">enquiries@mectech.co.in</a>
+                    <a href="mailto:setuindustrialpartners@gmail.com" className="text-body hover:text-[#d06060]">setuindustrialpartners@gmail.com</a>
                   </li>
                 </ul>
               </div>
@@ -157,32 +155,6 @@ export default function Footer() {
               <Link to="/privacy-policy" className="text-black font-bold text-xs mr-[9px] hover:text-primary">Privacy Policy</Link>
               <Link to="/terms-conditions" className="text-black font-bold text-xs mr-[9px] hover:text-primary">Terms & Conditions</Link>
               <Link to="/sitemap" className="text-black font-bold text-xs hover:text-primary">Site Map</Link>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <p className="m-0 text-xs text-primary font-bold uppercase">Follow Us</p>
-              <ul className="flex gap-3">
-                <li>
-                  <a href="https://www.facebook.com/share/1DH6j8KXst/" target="_blank" rel="noopener noreferrer">
-                    <img src="/assets/images/facebook.svg" alt="Facebook" className="w-5 h-5" />
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.youtube.com/watch?v=C_L8R5VWgCg" target="_blank" rel="noopener noreferrer">
-                    <img src="/assets/images/youtube-svgrepo-com.svg" alt="YouTube" className="w-5 h-5" />
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.instagram.com/mectechprocess/" target="_blank" rel="noopener noreferrer">
-                    <img src="/assets/images/instagram-svgrepo-com.svg" alt="Instagram" className="w-5 h-5" />
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.linkedin.com/company/mectechprocessnengineers/" target="_blank" rel="noopener noreferrer">
-                    <img src="/assets/images/linkedin-svgrepo-com.svg" alt="LinkedIn" className="w-5 h-5" />
-                  </a>
-                </li>
-              </ul>
             </div>
 
             <p className="text-xs text-right text-body m-0">
@@ -210,26 +182,11 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="flex justify-center gap-4 mb-6">
-          <a href="https://www.facebook.com/share/1DH6j8KXst/" target="_blank" rel="noopener noreferrer">
-            <img src="/assets/images/facebook.svg" alt="Facebook" className="w-6 h-6" />
-          </a>
-          <a href="https://www.youtube.com/watch?v=C_L8R5VWgCg" target="_blank" rel="noopener noreferrer">
-            <img src="/assets/images/youtube-svgrepo-com.svg" alt="YouTube" className="w-6 h-6" />
-          </a>
-          <a href="https://www.instagram.com/mectechprocess/" target="_blank" rel="noopener noreferrer">
-            <img src="/assets/images/instagram-svgrepo-com.svg" alt="Instagram" className="w-6 h-6" />
-          </a>
-          <a href="https://www.linkedin.com/company/mectechprocessnengineers/" target="_blank" rel="noopener noreferrer">
-            <img src="/assets/images/linkedin-svgrepo-com.svg" alt="LinkedIn" className="w-6 h-6" />
-          </a>
-        </div>
-
         <div className="text-center px-4">
-          {/* <h3 className="text-[13px] text-primary font-bold mb-5 uppercase">Mectech Corporate Office</h3> */}
-          {/* <p className="text-xs text-body mb-3">366, Phase - 2, Udyog Vihar, Gurgaon-122 016, Haryana, India.</p> */}
-          <p className="text-xs mb-1"><a href="tel:+91-0124-4700800" className="text-body">+91-(0124)-4700800</a></p>
-          {/* <p className="text-xs"><a href="mailto:enquiries@mectech.co.in" className="text-body">enquiries@mectech.co.in</a></p> */}
+          <h3 className="text-[13px] text-primary font-bold mb-5 uppercase">Setu Industrial Partners</h3>
+          <p className="text-xs text-body mb-3">Faridabad, Haryana, India</p>
+          <p className="text-xs mb-1"><a href="tel:+919999982065" className="text-body">+91-(9999982065)</a></p>
+          <p className="text-xs"><a href="mailto:setuindustrialpartners@gmail.com" className="text-body">setuindustrialpartners@gmail.com</a></p>
         </div>
 
         <div className="flex justify-center gap-3 mt-6">

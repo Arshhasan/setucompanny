@@ -22,10 +22,9 @@ const countries = [
 ]
 
 const departments = [
-  { name: 'Sales & Business Development', email: 'sales@mectech.co.in', phone: '+91-124-4700800' },
-  { name: 'Technical Queries', email: 'technical@mectech.co.in', phone: '+91-124-4700800' },
-  { name: 'After Sales Service', email: 'service@mectech.co.in', phone: '+91-124-4700800' },
-  { name: 'General Enquiries', email: 'enquiries@mectech.co.in', phone: '+91-124-4700800' },
+  { name: 'Business Development', email: 'setuindustrialpartners@gmail.com', phone: '+91 98963 69557' },
+  { name: 'Procurement & Sourcing', email: 'setuindustrialpartners@gmail.com', phone: '+91 98963 69557' },
+  { name: 'General Enquiries', email: 'setuindustrialpartners@gmail.com', phone: '+91 99999 82065' },
 ]
 
 function AnimSection({ children, className = '', delay = 0 }) {

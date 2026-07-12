@@ -5,172 +5,154 @@ import { useInView } from 'react-intersection-observer'
 import PageHero from '../components/ui/PageHero'
 import { Link } from 'react-router-dom'
 
-const BASE = 'https://mectech.co.in/public/f/images/'
-
 // Database of all technology pages
 const techData = {
   'seed-preparation': {
     title: 'Oil Seed Preparation',
-    banner: BASE + 'oil-seed-preparation-banner.jpg',
-    intro: 'Mectech is a leading manufacturer of Oil Seed Preparation Plants. Our solutions cover the complete seed preparation process from cleaning to conditioning, setting the stage for maximum oil extraction.',
+    intro: 'Setu Industrial Partners sources and delivers complete Oil Seed Preparation solutions through our network of proven technology providers. From cleaning to conditioning, the right preparation line sets the stage for maximum oil recovery downstream.',
     sections: [
       {
         heading: 'Seed Preparation Process',
-        content: 'The seed preparation process involves multiple stages: cleaning, grading, cracking, conditioning (heating), and flaking. Each stage is critical to achieving maximum oil yield and quality in the subsequent extraction process.',
-        img: BASE + 'home-img1.jpg',
+        content: 'A well-designed preparation line takes the seed through cleaning, grading, cracking, conditioning and flaking. Getting each of these stages right determines how much oil the extraction section can ultimately recover — which is why we help you match the line design to your specific seed and capacity.',
       },
       {
-        heading: 'Salient Features',
+        heading: 'What We Look For When Sourcing',
         bullets: [
-          'High efficiency seed cleaners with multiple screen decks',
-          'Precise temperature and moisture conditioning',
-          'Uniform flaking for optimal cell rupture',
+          'Efficient multi-deck seed cleaning',
+          'Accurate temperature and moisture conditioning',
+          'Uniform flaking for effective cell rupture',
           'Continuous operation with minimal downtime',
-          'Energy efficient design with heat recovery',
-          'Automated controls for consistent quality',
+          'Heat recovery and low energy consumption',
+          'Automation for consistent quality',
         ],
       },
     ],
-    globalPresence: 'Mectech has supplied Oil Seed Preparation Plants in India, Bangladesh, Vietnam, Indonesia, Malaysia, Thailand, UAE, Turkey, Nigeria, Kenya, and many more countries.',
+    globalPresence: 'Our network covers technology providers with reference installations across Asia, Africa, the Middle East and Europe.',
   },
   'solvent-extraction-plant': {
     title: 'Solvent Extraction Plant',
-    banner: BASE + 'home-img2.jpg',
-    intro: 'Mectech\'s Solvent Extraction Plants are designed for maximum oil extraction efficiency using hexane as solvent. Our plants achieve oil content in expeller cake as low as 0.5-1%.',
+    intro: 'We help you select and procure Solvent Extraction Plants designed for maximum oil recovery, including belt-type horizontal extractor technology, matched to your feedstock and capacity.',
     sections: [
       {
         heading: 'Process Overview',
-        content: 'The solvent extraction process uses hexane to extract oil from pre-pressed cake or flakes. The miscella (oil+solvent mixture) is then processed to separate oil from solvent. The desolventized-toasted meal is a valuable by-product.',
-        img: BASE + 'home-img2.jpg',
+        content: 'Solvent extraction recovers oil from pre-pressed cake or flakes using hexane. The oil-solvent mixture is then separated, and the de-solventized, toasted meal becomes a valuable by-product for animal feed. Distillation and heat recovery systems keep energy use in check.',
       },
       {
-        heading: 'Key Features',
+        heading: 'What We Look For When Sourcing',
         bullets: [
           'Continuous counter-current extraction',
-          'Very low residual oil in meal (0.5-1%)',
-          'Low solvent consumption',
-          'Fully closed loop solvent recovery',
-          'Automatic fire safety systems',
-          'High quality meal suitable for animal feed',
+          'Low residual oil in meal',
+          'Low solvent consumption with closed-loop recovery',
+          'Robust safety systems',
+          'High quality meal output',
+          'Proven reference installations',
         ],
       },
     ],
-    globalPresence: 'Plants supplied in India, Bangladesh, Vietnam, Indonesia, Malaysia, Turkey, Iran, Nigeria, and other countries.',
+    globalPresence: 'Our network covers extraction technology providers with installations across Asia, Africa and the Middle East.',
   },
   'vegetable-oil-refinery-plant': {
     title: 'Vegetable Oil Refining Plant',
-    banner: BASE + 'vegitable-Plant-Pic-one.jpg',
-    intro: 'Mectech is a leading Vegetable Oil Refining Plant manufacturer in India. Our refining plants process all types of crude vegetable oils through Longmix, Degumming, Neutralizing & Washing processes.',
+    intro: 'Setu Industrial Partners arranges complete Vegetable Oil Refining solutions — chemical or physical — covering degumming, neutralizing, bleaching and deodorization for all types of crude vegetable oils.',
     sections: [
       {
-        heading: 'Continuous Longmix, Degumming, Neutralizing & Washing',
-        content: 'For the successful Degumming, Neutralization and Washing of crude vegetable oil, the inherent phosphatides and free fatty acid need to be removed. Mectech\'s oil processing plants achieve this through a highly evolved continuous process, in which Degumming is carried out by reaction with Phosphoric acid under controlled conditions.',
-        img: BASE + 'vegitable_ Plant_Pic1.jpg',
+        heading: 'Degumming, Neutralizing & Washing',
+        content: 'Crude vegetable oil carries phosphatides and free fatty acids that must be removed before the oil can meet quality standards. Modern continuous refining lines handle this through controlled acid degumming, caustic neutralization and washing, with centrifugal separation at each stage.',
       },
       {
-        heading: 'Salient Features',
+        heading: 'What We Look For When Sourcing',
         bullets: [
-          'Continuous Longmix process for superior degumming',
-          'Precise phosphoric acid dosing control',
-          'Centrifugal separators for gum removal',
-          'NaOH neutralization to remove free fatty acids',
-          'Efficient washing to remove soap traces',
+          'Continuous processing for consistent quality',
+          'Precise acid and caustic dosing control',
+          'Efficient centrifugal separation',
           'Low neutral oil loss in soapstock',
-          'Suitable for all vegetable oils',
+          'Flexibility across oil types',
+          'Energy-efficient design',
         ],
       },
     ],
-    globalPresence: 'Plants installed in Argentina, Bangladesh, Belarus, Bhutan, Chile, Congo, Germany, India, Indonesia, Iran, Egypt, Iraq, Kenya, Malaysia, Nepal, Netherlands, Pakistan, Philippines, Romania, Sri Lanka, Tanzania, Thailand, Turkey, UAE, Vietnam and more.',
+    globalPresence: 'We work with refining technology providers whose plants operate across Asia, Africa, the Middle East, Europe and the Americas.',
   },
   'palm-oil-refining-plant': {
     title: 'Palm Oil Refining Plant',
-    banner: BASE + 'home-img4.jpg',
-    intro: 'Mectech offers complete Palm Oil Refining Plants including Degumming, Bleaching, Deodorization, and Fractionation. Our plants process crude palm oil into refined, bleached and deodorized (RBD) palm oil.',
+    intro: 'We source complete Palm Oil Refining solutions — degumming, bleaching, deodorization and fractionation — for processing crude palm oil into refined, bleached and deodorized (RBD) products.',
     sections: [
-      { heading: 'Process Overview', content: 'Palm Oil Refining involves Physical Refining where FFA is removed by steam stripping in the deodorizer. This process gives very low neutral oil losses and produces high quality refined oil.', img: BASE + 'home-img4.jpg' },
-      { heading: 'Plant Features', bullets: ['Physical refining for low neutral oil losses', 'Continuous bleaching section', 'High efficiency deodorizer', 'Palm olein/stearin fractionation', 'Capacity: 50-1000 TPD'] },
+      { heading: 'Process Overview', content: 'Palm oil is typically refined physically: free fatty acids are removed by steam stripping in the deodorizer, giving low neutral oil losses and high quality refined oil. Dry fractionation then separates olein and stearin fractions for different applications.' },
+      { heading: 'What We Look For When Sourcing', bullets: ['Physical refining for low oil losses', 'Continuous bleaching section', 'High efficiency deodorization', 'Olein/stearin fractionation options', 'Capacity matched to your project'] },
     ],
-    globalPresence: 'Palm oil plants supplied in Malaysia, Indonesia, India, Nigeria, Ghana, Congo, and many other palm growing countries.',
+    globalPresence: 'Our partner network includes palm oil technology providers with installations across Southeast Asia, South Asia and Africa.',
   },
   'continuous-bleaching': {
     title: 'Continuous Bleaching',
-    banner: BASE + 'home-img3.jpg',
-    intro: 'Mectech\'s Continuous Bleaching Plants use activated earth and carbon to remove color, residual soaps, phospholipids, and oxidation products from degummed and neutralized oils.',
+    intro: 'We help you procure Continuous Bleaching Plants that use activated earth and carbon to remove color bodies, residual soaps, phospholipids and oxidation products from degummed and neutralized oils.',
     sections: [
-      { heading: 'Bleaching Process', content: 'The bleaching process involves mixing the oil with bleaching earth under vacuum conditions at elevated temperature. The bleaching earth adsorbs impurities including chlorophyll, carotenoids, oxidation products and residual soaps.', img: BASE + 'home-img3.jpg' },
-      { heading: 'Features', bullets: ['Continuous operation', 'Low earth consumption', 'Efficient earth-oil contact', 'Vacuum bleaching for minimum oxidation', 'Pressure leaf filters for earth removal'] },
+      { heading: 'Bleaching Process', content: 'In bleaching, oil is mixed with bleaching earth under vacuum at elevated temperature. The earth adsorbs impurities — chlorophyll, carotenoids, oxidation products and residual soaps — before being filtered out on pressure leaf filters.' },
+      { heading: 'What We Look For When Sourcing', bullets: ['Continuous operation', 'Low earth consumption', 'Effective earth-oil contact', 'Vacuum operation to limit oxidation', 'Reliable filtration for earth removal'] },
     ],
-    globalPresence: 'Bleaching plants supplied across Asia, Middle East, Africa and Europe.',
+    globalPresence: 'Bleaching technology available through our network across Asia, the Middle East, Africa and Europe.',
   },
   'fractionation-plant': {
     title: 'Fractionation Plant',
-    banner: BASE + 'Innovative-two.jpg',
-    intro: 'Mectech designs and manufactures Dry Fractionation Plants and Solvent Fractionation Plants for separating oils into fractions with different melting points and applications.',
+    intro: 'We arrange Dry Fractionation Plants for palm and palm kernel oil, separating oils into fractions with different melting points and end uses.',
     sections: [
-      { heading: 'Dry Fractionation', content: 'Dry fractionation is an economical process to separate oils based on their crystallization characteristics. Controlled cooling crystallizes the high melting fraction (stearin) which is then separated from the liquid fraction (olein) by membrane filtration.', img: BASE + 'Innovative-two.jpg' },
-      { heading: 'Features', bullets: ['No chemicals or solvents required in dry fractionation', 'Precise temperature control for selective crystallization', 'Membrane filtration for efficient separation', 'High olein yield', 'Low operating costs'] },
+      { heading: 'Dry Fractionation', content: 'Dry fractionation separates oil fractions by their crystallization behaviour. Controlled cooling crystallizes the higher-melting stearin, which membrane filtration then separates from the liquid olein — no chemicals or solvents required.' },
+      { heading: 'What We Look For When Sourcing', bullets: ['Solvent-free, chemical-free process', 'Precise crystallization temperature control', 'Efficient membrane filtration', 'High olein yield', 'Low operating cost'] },
     ],
-    globalPresence: 'Fractionation plants supplied in Malaysia, Indonesia, India, UAE, and other countries.',
+    globalPresence: 'Fractionation technology providers in our network serve Southeast Asia, South Asia and the Middle East.',
   },
   'glycerine-refining-plant': {
     title: 'Glycerin Refining Plant',
-    banner: BASE + 'home-img5.jpg',
-    intro: 'Mectech manufactures complete Glycerin Refining Plants for purifying crude glycerin from soap manufacturing and biodiesel production to pharmaceutical/food grade glycerin.',
+    intro: 'We source complete Glycerin Refining solutions for purifying crude glycerin from soap manufacturing and biodiesel production up to pharmaceutical and food grades.',
     sections: [
-      { heading: 'Glycerin Refining Process', content: 'The crude glycerin from soap stock splitting or biodiesel production is purified through a series of steps including pre-treatment, evaporation, distillation, and deodorization to produce high purity glycerin.', img: BASE + 'home-img5.jpg' },
-      { heading: 'Plant Capabilities', bullets: ['Crude glycerin purification from 50% to 99.7%', 'Multi-effect evaporation', 'Vacuum distillation', 'Ion exchange treatment', 'Activated carbon treatment', 'Produces USP/BP grade glycerin'] },
+      { heading: 'Glycerin Refining Process', content: 'Crude glycerin is purified through pre-treatment, multi-effect evaporation, vacuum distillation and deodorization. Ion exchange and activated carbon polishing bring the product to the required purity grade.' },
+      { heading: 'What We Look For When Sourcing', bullets: ['Purification to 99%+ purity', 'Multi-effect evaporation for energy efficiency', 'Vacuum distillation', 'Ion exchange and carbon treatment', 'USP/BP grade capability'] },
     ],
-    globalPresence: 'Glycerin plants supplied across Asia, Middle East, and Europe.',
+    globalPresence: 'Glycerin technology available through our network across Asia, the Middle East and Europe.',
   },
   'bio-diesel-manufacturing-plant': {
     title: 'Bio-Diesel Manufacturing Plant',
-    banner: BASE + 'environmental-pollution-industry-exterior-daylight.jpg',
-    intro: 'Mectech manufactures Bio-Diesel plants capable of producing bio-diesel conforming to EU (EN 14214) and BIS 15607:2005 standards from various feedstocks.',
+    intro: 'We arrange advanced pressurized biodiesel plant solutions designed for efficiency and sustainability, producing biodiesel that meets EU (EN 14214) and BIS 15607 standards from a range of feedstocks.',
     sections: [
-      { heading: 'Bio-Diesel Process', content: 'Bio-diesel is produced by transesterification of vegetable oils or animal fats with methanol in the presence of a catalyst. Our plants handle the complete process from pre-treatment through reaction, separation, washing, and drying.', img: BASE + 'environmental-pollution-industry-exterior-daylight.jpg' },
-      { heading: 'Features', bullets: ['Feedstock: Vegetable oils, jatropha, used cooking oil, animal fat', 'Continuous transesterification', 'EU EN 14214 & BIS 15607:2005 compliant', 'Methanol recovery system', 'Glycerin by-product recovery', 'Capacity: 30-500 TPD'] },
+      { heading: 'Bio-Diesel Process', content: 'Biodiesel is produced by transesterification of vegetable oils or animal fats with methanol over a catalyst. A complete plant covers feedstock pre-treatment, reaction, separation, washing and drying, along with methanol recovery and glycerin by-product handling.' },
+      { heading: 'What We Look For When Sourcing', bullets: ['Feedstock flexibility: vegetable oils, used cooking oil, animal fat', 'Continuous transesterification', 'EN 14214 / BIS 15607 compliant product', 'Efficient methanol recovery', 'Glycerin by-product recovery', 'Minimal waste and energy consumption'] },
     ],
-    globalPresence: 'Bio-diesel plants supplied in India, Germany, Brazil, and other countries.',
+    globalPresence: 'Biodiesel technology providers in our network have installations across Asia, Europe and the Americas.',
   },
-  'mecklear-gravity-filteration-process': {
-    title: 'Mecklear Gravity Filter',
-    banner: BASE + 'home-img6.jpg',
-    intro: 'Mectech\'s Mecklear Gravity Filter is a unique horizontal pressure leaf filter for separating spent bleaching earth from oil with very high throughput and low residual oil.',
+  'gravity-filtration-process': {
+    title: 'Gravity Filtration',
+    intro: 'We source gravity filters and other filtration and recovery equipment that separate spent bleaching earth from oil with high throughput and low residual oil.',
     sections: [
-      { heading: 'Working Principle', content: 'The Mecklear Gravity Filter operates on the principle of gravity-assisted pressure filtration. The filter leaves are horizontal, and the cake is discharged by gravity after filtration, ensuring complete cake discharge.', img: BASE + 'home-img6.jpg' },
-      { heading: 'Advantages', bullets: ['Very low residual oil in cake (< 25% on dry basis)', 'Complete cake discharge by gravity', 'No compressed air required for cake discharge', 'Minimum operator attention', 'Long filter leaf life', 'High throughput per unit area'] },
+      { heading: 'Working Principle', content: 'Gravity-discharge pressure leaf filters use horizontal filter leaves; after filtration, the cake discharges by gravity, ensuring complete cake removal without compressed air.' },
+      { heading: 'What We Look For When Sourcing', bullets: ['Low residual oil in cake', 'Complete gravity cake discharge', 'Minimal operator attention', 'Long filter leaf life', 'High throughput per unit area'] },
     ],
-    globalPresence: 'Mecklear filters installed in India and internationally.',
+    globalPresence: 'Filtration equipment available through our vendor network in India and internationally.',
   },
   'winterization-dewaxing-plant': {
     title: 'Winterization Dewaxing Plant',
-    banner: BASE + 'home-img3.jpg',
-    intro: 'Mectech\'s Winterization and Dewaxing Plants remove waxes and high melting triglycerides from oils like sunflower, rice bran, and corn oil to produce clear, stable oil at refrigeration temperatures.',
+    intro: 'We arrange Winterization and Dewaxing solutions that remove waxes and high-melting triglycerides from oils like sunflower, rice bran and corn oil, keeping the oil clear at refrigeration temperatures.',
     sections: [
-      { heading: 'Process Description', content: 'The oil is gradually cooled to crystallize waxes and high melting components. The crystallized waxes are then separated by filtration. The resulting winterized oil remains clear and liquid even at low temperatures.', img: BASE + 'home-img3.jpg' },
-      { heading: 'Features', bullets: ['Gentle cooling for optimal crystallization', 'Scraped surface crystallizers', 'Pressure leaf filtration', 'High wax removal efficiency', 'Applicable to sunflower, rice bran, corn, safflower oils'] },
+      { heading: 'Process Description', content: 'The oil is cooled gradually so waxes and high-melting components crystallize, then filtration separates them out. The winterized oil stays clear and liquid even when chilled.' },
+      { heading: 'What We Look For When Sourcing', bullets: ['Controlled cooling for optimal crystallization', 'Scraped surface crystallizers', 'Reliable filtration', 'High wax removal efficiency', 'Suitability for sunflower, rice bran, corn and safflower oils'] },
     ],
-    globalPresence: 'Winterization plants supplied across Europe, Asia, and Americas.',
+    globalPresence: 'Winterization technology providers in our network serve Europe, Asia and the Americas.',
   },
   'pilot-plant-manufacturer': {
-    title: 'Pilot Plant Manufacturer',
-    banner: BASE + 'industrial-zonethe-equipment-oil-refiningnumber-electric-motors-with-reducers-food-industry-details-distribution-system-modern-brewery-equipment-industrial-tools.jpg',
-    intro: 'Mectech is one of the top Pilot Plant manufacturers in India and globally. Our pilot plants are used for R&D, process optimization, and new oil/fat product development.',
+    title: 'Pilot Plants',
+    intro: 'We source pilot plants for R&D, process optimization and new product development in oils, fats and oleochemicals — matched to your research goals and budget.',
     sections: [
-      { heading: 'Pilot Plants Available', content: 'We manufacture pilot plants for all oil processing operations including refining, bleaching, deodorization, fractionation, hydrogenation, and oleo chemical processes at lab and semi-commercial scales.', img: BASE + 'industrial-zonethe-equipment-oil-refiningnumber-electric-motors-with-reducers-food-industry-details-distribution-system-modern-brewery-equipment-industrial-tools.jpg' },
-      { heading: 'Features', bullets: ['Scale: 1 kg/hour to 1 TPD', 'Complete process replication at small scale', 'Accurate temperature and pressure control', 'Used by universities, research institutes, and oil companies', 'Custom designs available'] },
+      { heading: 'Pilot Plants Available', content: 'Through our network we can arrange pilot plants for refining, bleaching, deodorization, fractionation, hydrogenation and oleochemical processes, at laboratory through semi-commercial scale.' },
+      { heading: 'What We Look For When Sourcing', bullets: ['Scales from lab bench to semi-commercial', 'Faithful replication of full-scale process conditions', 'Accurate temperature and pressure control', 'Suitability for universities, research institutes and producers', 'Custom design capability'] },
     ],
-    globalPresence: 'Pilot plants supplied to research institutions and oil companies globally.',
+    globalPresence: 'Pilot plant suppliers in our network serve research institutions and producers globally.',
   },
   'bakery-shortening-margarine': {
     title: 'Bakery Shortening & Margarine',
-    banner: BASE + 'Innovative-one.jpg',
-    intro: 'Mectech manufactures complete Bakery Shortening and Margarine plants using the latest votator/scraped surface heat exchanger technology for producing high quality plastic fats.',
+    intro: 'We arrange complete Bakery Shortening and Margarine plant solutions using scraped surface heat exchanger technology for high quality plastic fats.',
     sections: [
-      { heading: 'Process Overview', content: 'The bakery shortening and margarine manufacturing process involves blending, emulsification, pasteurization, and controlled crystallization through scraped surface heat exchangers (votators) to produce products with desired texture and melting characteristics.', img: BASE + 'Innovative-one.jpg' },
-      { heading: 'Products', bullets: ['Bakery shortening', 'Table margarine', 'Industrial margarine', 'Vanaspati', 'Specialty fats', 'Capacity: 5-200 TPD'] },
+      { heading: 'Process Overview', content: 'Shortening and margarine production involves blending, emulsification, pasteurization and controlled crystallization in scraped surface heat exchangers, giving the product its target texture and melting profile.' },
+      { heading: 'Typical Products', bullets: ['Bakery shortening', 'Table margarine', 'Industrial margarine', 'Vanaspati', 'Specialty fats'] },
     ],
-    globalPresence: 'Bakery fat plants supplied in India, Middle East, and Africa.',
+    globalPresence: 'Technology providers in our network serve South Asia, the Middle East and Africa.',
   },
 }
 
@@ -178,9 +160,9 @@ const techData = {
 const defaultData = {
   title: 'Technology',
   banner: null,
-  intro: 'Mectech provides world-class technology solutions for the Oil & Fats Industry.',
+  intro: 'Setu Industrial Partners sources and delivers proven technology solutions for the oils & fats, oleochemical and biodiesel industries through our vendor-neutral partner network.',
   sections: [],
-  globalPresence: 'Plants supplied across 30+ countries worldwide.',
+  globalPresence: 'Our partner network spans technology providers with installations worldwide.',
 }
 
 function AnimSection({ children, className = '', delay = 0 }) {
@@ -226,16 +208,6 @@ export default function TechnologyDetailPage() {
                   {section.content && (
                     <p className="text-[13px] text-body leading-[21px] mb-4">{section.content}</p>
                   )}
-                  {section.img && (
-                    <figure className="mb-6">
-                      <img
-                        src={section.img}
-                        alt={section.heading}
-                        className="w-full"
-                        onError={e => { e.target.style.display = 'none' }}
-                      />
-                    </figure>
-                  )}
                   {section.bullets && (
                     <ul className="space-y-3">
                       {section.bullets.map((b, bi) => (
@@ -251,7 +223,7 @@ export default function TechnologyDetailPage() {
 
               {data.globalPresence && (
                 <AnimSection className="bg-lightbg p-6 mt-8">
-                  <h2 className="text-[24px] font-bold text-black mb-3">Global Presence</h2>
+                  <h2 className="text-[24px] font-bold text-black mb-3">Global Reach</h2>
                   <p className="text-[13px] text-body leading-[21px]">{data.globalPresence}</p>
                 </AnimSection>
               )}

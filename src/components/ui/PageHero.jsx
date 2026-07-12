@@ -6,8 +6,8 @@ export default function PageHero({ title, breadcrumb, bgImage, className = '' })
       className={`relative pt-[120px] pb-[60px] text-center overflow-hidden ${className}`}
       style={{
         background: bgImage
-          ? `linear-gradient(rgba(0,48,85,0.75), rgba(0,48,85,0.75)), url(${bgImage}) center/cover no-repeat`
-          : '#003055',
+          ? `linear-gradient(rgba(12,59,46,0.75), rgba(12,59,46,0.75)), url(${bgImage}) center/cover no-repeat`
+          : '#0C3B2E',
       }}
     >
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
