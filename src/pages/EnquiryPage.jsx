@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import PageHero from '../components/ui/PageHero'
 
+const ENDPOINT = import.meta.env.VITE_LEAD_ENDPOINT
+
 const countries = [
   'Afghanistan', 'Albania', 'Algeria', 'Argentina', 'Armenia', 'Australia', 'Austria',
   'Azerbaijan', 'Bahrain', 'Bangladesh', 'Belarus', 'Belgium', 'Bhutan', 'Bolivia',
@@ -47,11 +49,34 @@ export default function EnquiryPage() {
     products: '', capacity: '', message: '',
   })
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
 
   const set = (field) => (e) => setForm({ ...form, [field]: e.target.value })
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    setError('')
+    if (!ENDPOINT || !ENDPOINT.startsWith('https://')) {
+      setError('The enquiry form is not available right now. Please email us at enquiries@setu.co.in.')
+      return
+    }
+    setSubmitting(true)
+    try {
+      await fetch(ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...form,
+          timestamp: new Date().toISOString(),
+          source: 'Setu Website Enquiry Form',
+        }),
+      })
+    } catch {
+      /* no-cors: response is opaque, treat as success */
+    }
+    setSubmitting(false)
     setSubmitted(true)
   }
 
@@ -145,11 +170,14 @@ export default function EnquiryPage() {
                       />
                     </div>
                     <div className="md:col-span-2">
+                      {error && (
+                        <p className="text-red-600 text-sm mb-4">{error}</p>
+                      )}
                       <button
-                        type="submit"
-                        className="bg-primary text-white font-bold px-12 py-4 text-sm uppercase tracking-wider hover:bg-primary-light transition-colors"
+                        type="submit" disabled={submitting}
+                        className="bg-primary text-white font-bold px-12 py-4 text-sm uppercase tracking-wider hover:bg-primary-light transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                       >
-                        Submit Enquiry
+                        {submitting ? 'Submitting…' : 'Submit Enquiry'}
                       </button>
                     </div>
                   </form>
@@ -164,23 +192,19 @@ export default function EnquiryPage() {
                   <h3 className="text-[18px] font-bold text-accent mb-6 uppercase">Corporate Office</h3>
                   <div className="space-y-4">
                     <div className="flex gap-3">
-                      <img src="/assets/images/location.svg" alt="" className="w-5 h-5 mt-0.5 flex-shrink-0 invert" />
-                      <p className="text-[13px] leading-[21px]">
-                        366, Phase - 2, Udyog Vihar,<br />
-                        Gurgaon - 122 016,<br />
-                        Haryana, India.
-                      </p>
+                      {/* <img src="/assets/images/location.svg" alt="" className="w-5 h-5 mt-0.5 flex-shrink-0 invert" /> */}
+                      
                     </div>
                     <div className="flex gap-3">
                       <img src="/assets/images/Icon-awesome-phone.svg" alt="" className="w-4 h-4 mt-1 flex-shrink-0 invert" />
                       <a href="tel:+91-0124-4700800" className="text-[13px] hover:text-accent">
-                        +91-(0124)-4700800 (30 lines)
+                        +91-(9999982065)
                       </a>
                     </div>
                     <div className="flex gap-3">
                       <img src="/assets/images/Icon-material-email.svg" alt="" className="w-4 h-4 mt-1 flex-shrink-0 invert" />
-                      <a href="mailto:enquiries@mectech.co.in" className="text-[13px] hover:text-accent">
-                        enquiries@mectech.co.in
+                      <a href="mailto:enquiries@setu.co.in" className="text-[13px] hover:text-accent">
+                        enquiries@setu.co.in
                       </a>
                     </div>
                   </div>

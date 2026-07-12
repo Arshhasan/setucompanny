@@ -104,7 +104,7 @@ export const navLinks = [
   },
   { label: 'SERVICES', href: '/services-support', type: 'link' },
   { label: 'SPARES', href: '/spares', type: 'link' },
-  { label: 'SUSTAINABILITY', href: '/sustainablity', type: 'link' },
+  // { label: 'SUSTAINABILITY', href: '/sustainablity', type: 'link' },
   // { label: 'OUR TOP CLIENTS', href: '/clients', type: 'link' },
   { label: 'CONTACT US', href: '/enquiry', type: 'link' },
 ]

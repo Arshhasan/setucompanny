@@ -26,16 +26,6 @@ const footerCols = [
       { label: 'Value added Projects / Plants', href: '/bakery-shortening-margarine' },
     ],
   },
-  {
-    title: 'CAPABILITIES',
-    titleHref: '/infrastructure',
-    links: [
-      { label: 'Design & Development', href: '/infrastructure#Design-Development' },
-      { label: 'Manufacturing', href: '/infrastructure#Manufacturing' },
-      { label: 'Quality & Testing', href: '/infrastructure#quality' },
-      { label: 'Certification', href: '/infrastructure#Certifications' },
-    ],
-  },
 ]
 
 const footerCol4 = {
@@ -44,15 +34,14 @@ const footerCol4 = {
       title: 'SERVICES',
       titleHref: '/services-support',
       links: [
-        { label: 'Installation Supervision', href: '/services-support#Installation-Supervision' },
-        { label: 'Commissioning Support', href: '/services-support#Installation-Supervision' },
-        { label: 'After Sales Support', href: '/services-support#after-sales' },
+        { label: 'Project Consulting', href: '/services-support#consulting' },
+        { label: 'Right-Partner Sourcing', href: '/services-support#sourcing' },
+        { label: 'Procurement Services', href: '/services-support#procurement' },
         { label: 'Spares', href: '/spares' },
       ],
     },
     {
       standalone: [
-        { label: 'A Short Glimpse of Mectech', href: '/video', upper: true },
         { label: 'PEOPLE', href: '/people' },
         { label: 'CONTACT US', href: '/enquiry' },
         { label: 'SUSTAINABILITY', href: '/sustainablity' },
@@ -71,7 +60,7 @@ export default function Footer() {
           <div className="flex gap-6">
             {/* Left 9 cols */}
             <div className="flex-1">
-              <div className="grid grid-cols-4 gap-6 mb-6">
+              <div className="grid grid-cols-3 gap-6 mb-6">
                 {footerCols.map((col, ci) => (
                   <div key={ci}>
                     <ul className="mb-7 relative pb-5 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-[26px] after:h-[1px]">
@@ -142,8 +131,8 @@ export default function Footer() {
                 </Link>
                 
 
-                <h3 className="text-[13px] text-primary font-bold mb-5 uppercase">Mectech Corporate Office</h3>
-                <p className="text-xs text-body font-cairo mb-4">366, Phase - 2, Udyog Vihar, Gurgaon-122 016, Haryana, India.</p>
+                {/* <h3 className="text-[13px] text-primary font-bold mb-5 uppercase">Mectech Corporate Office</h3> */}
+                {/* <p className="text-xs text-body font-cairo mb-4">366, Phase - 2, Udyog Vihar, Gurgaon-122 016, Haryana, India.</p> */}
                 <ul className="border-b border-white/30 pb-6 mb-7">
                   <li className="flex items-center text-xs text-body mb-3">
                     <figure className="w-[9px] h-[9px] mr-[15px] flex-shrink-0">
@@ -197,7 +186,7 @@ export default function Footer() {
             </div>
 
             <p className="text-xs text-right text-body m-0">
-              © 2026 - All Rights Reserved <Link to="/" className="text-body hover:text-primary">Mectech</Link>
+              © 2026 - All Rights Reserved <Link to="/" className="text-body hover:text-primary">Setu Industrial Partners</Link>
             </p>
           </div>
         </div>
@@ -211,7 +200,6 @@ export default function Footer() {
               { label: 'HOME', href: '/' },
               { label: 'ABOUT US', href: '/about-us' },
               { label: 'TECHNOLOGY', href: '/technology' },
-              { label: 'PROJECTS', href: '/video' },
               { label: 'SERVICES', href: '/services-support' },
               { label: 'CONTACT US', href: '/enquiry' },
             ].map((l, i) => (
@@ -238,17 +226,17 @@ export default function Footer() {
         </div>
 
         <div className="text-center px-4">
-          <h3 className="text-[13px] text-primary font-bold mb-5 uppercase">Mectech Corporate Office</h3>
-          <p className="text-xs text-body mb-3">366, Phase - 2, Udyog Vihar, Gurgaon-122 016, Haryana, India.</p>
+          {/* <h3 className="text-[13px] text-primary font-bold mb-5 uppercase">Mectech Corporate Office</h3> */}
+          {/* <p className="text-xs text-body mb-3">366, Phase - 2, Udyog Vihar, Gurgaon-122 016, Haryana, India.</p> */}
           <p className="text-xs mb-1"><a href="tel:+91-0124-4700800" className="text-body">+91-(0124)-4700800</a></p>
-          <p className="text-xs"><a href="mailto:enquiries@mectech.co.in" className="text-body">enquiries@mectech.co.in</a></p>
+          {/* <p className="text-xs"><a href="mailto:enquiries@mectech.co.in" className="text-body">enquiries@mectech.co.in</a></p> */}
         </div>
 
         <div className="flex justify-center gap-3 mt-6">
           <Link to="/privacy-policy" className="text-xs text-body">Privacy Policy</Link>
           <Link to="/terms-conditions" className="text-xs text-body">Terms & Conditions</Link>
         </div>
-        <p className="text-xs text-center text-body mt-3">© 2026 - All Rights Reserved Mectech</p>
+        <p className="text-xs text-center text-body mt-3">© 2026 - All Rights Reserved Setu Industrial Partners</p>
       </div>
     </>
   )

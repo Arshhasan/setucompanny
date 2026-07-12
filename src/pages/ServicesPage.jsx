@@ -3,72 +3,65 @@ import { useInView } from 'react-intersection-observer'
 import PageHero from '../components/ui/PageHero'
 import { Link } from 'react-router-dom'
 
-const BASE = 'https://mectech.co.in/public/f/images/'
-
 const services = [
   {
-    icon: '/assets/images/m-services.svg',
-    title: 'Installation Supervision',
-    id: 'Installation-Supervision',
-    desc: 'Mectech provides expert installation supervision by qualified engineers at your plant site. Our experienced team ensures proper equipment positioning, alignment, and connection according to engineering drawings and specifications.',
+    title: 'Project Consulting',
+    id: 'consulting',
+    desc: 'Every successful plant begins with the right decisions on paper. We study your product mix, feedstock, capacity targets and budget, then translate them into clear technical requirements — so you invest in the right technology the first time, with 100% vendor-neutral advice.',
     items: [
-      'Site preparation guidance',
-      'Equipment installation support',
-      'Civil work supervision',
-      'Utility connections',
-      'Erection and alignment',
+      'Project feasibility assessment',
+      'Technology and process selection',
+      'Capacity and configuration planning',
+      'Budgetary estimates and comparisons',
+      'Technical specification development',
     ],
   },
   {
-    icon: '/assets/images/m-services.svg',
-    title: 'Commissioning Support',
-    id: 'commissioning',
-    desc: 'Our commissioning team works side-by-side with your operators to ensure the plant starts up smoothly and achieves design performance parameters. We provide hands-on training during commissioning.',
+    title: 'Right-Partner Sourcing',
+    id: 'sourcing',
+    desc: 'We are not tied to any single manufacturer or product line. Drawing on 30+ years across the oils & fats, oleochemical and biodiesel industries, we identify, evaluate and shortlist the technology providers best suited to your project — on merit, not commission.',
     items: [
-      'Pre-commissioning checks',
-      'Trial runs and optimization',
-      'Performance testing',
-      'Operator training',
-      'Process fine-tuning',
+      'Vendor identification and screening',
+      'Techno-commercial bid evaluation',
+      'Reference plant verification',
+      'Negotiation support',
+      'Contract and scope alignment',
     ],
   },
   {
-    icon: '/assets/images/m-services.svg',
-    title: 'After Sales Support',
-    id: 'after-sales',
-    desc: 'Mectech\'s commitment doesn\'t end at commissioning. We provide comprehensive after-sales support to ensure your plant continues to operate at peak efficiency throughout its life.',
+    title: 'Procurement Services',
+    id: 'procurement',
+    desc: 'One accountable partner for your entire purchasing cycle. From process equipment and filtration systems to critical spares, we manage sourcing end to end — coordinating vendors, timelines and quality so your project stays on schedule and on budget.',
     items: [
-      '24/7 technical helpline',
-      'On-site troubleshooting visits',
-      'Annual maintenance contracts',
-      'Plant performance audits',
-      'Process optimization support',
+      'Equipment and package procurement',
+      'Spares and consumables sourcing',
+      'Quality and inspection coordination',
+      'Delivery and logistics follow-up',
+      'Documentation and compliance support',
     ],
   },
   {
-    icon: '/assets/images/m-services.svg',
-    title: 'Spares Supply',
-    id: 'spares',
-    desc: 'We maintain a comprehensive stock of critical spare parts for all Mectech equipment. Our spares supply service ensures minimum downtime for your plant operations.',
+    title: 'Project Execution Support',
+    id: 'execution',
+    desc: 'We stay engaged from concept to commissioning. Our team coordinates between you, technology suppliers and site contractors during installation and start-up, making sure the plant you were promised is the plant that gets delivered.',
     items: [
-      'Genuine Mectech spare parts',
-      'Quick dispatch from stock',
-      'Annual spares contracts',
-      'Emergency spares supply',
-      'Obsolete parts replacement',
+      'Installation and erection coordination',
+      'Pre-commissioning readiness reviews',
+      'Start-up and trial run support',
+      'Performance guarantee follow-through',
+      'Single point of contact across vendors',
     ],
   },
   {
-    icon: '/assets/images/m-services.svg',
-    title: 'Revamping & Upgradation',
-    id: 'revamping',
-    desc: 'Mectech offers plant revamping services to upgrade existing plants with newer technology, increase capacity, or improve efficiency and product quality.',
+    title: 'Plant Improvement & Modernisation',
+    id: 'modernisation',
+    desc: 'For running plants, we help you get more from what you already own — sourcing the right technology partners for capacity expansion, energy savings, automation and product quality upgrades in oils & fats, oleochemical and biodiesel operations.',
     items: [
-      'Capacity enhancement',
-      'Energy efficiency improvement',
-      'Technology upgradation',
-      'Automation upgrades',
-      'Quality improvement modifications',
+      'Capacity debottlenecking studies',
+      'Energy and yield improvement',
+      'Automation and control upgrades',
+      'Product diversification options',
+      'Obsolete equipment replacement sourcing',
     ],
   },
 ]
@@ -97,10 +90,10 @@ export default function ServicesPage() {
       <section className="py-[70px] bg-white">
         <div className="container mx-auto px-4 max-w-7xl text-center">
           <AnimSection>
-            <h2 className="text-[30px] font-bold text-black mb-4">Comprehensive Services</h2>
-            <h4 className="text-[48px] font-bold text-blubrand mb-6">We're With You Every Step</h4>
+            <h2 className="text-[30px] font-bold text-black mb-4">Our Services</h2>
+            <h4 className="text-[48px] font-bold text-blubrand mb-6">One Partner, Concept to Commissioning</h4>
             <p className="text-[15px] text-body leading-[21px] max-w-3xl mx-auto">
-              From the design stage to operation of your plant and beyond, Mectech is there. Our comprehensive service support ensures your plant performs at its best throughout its lifecycle.
+              Setu Industrial Partners is your single point of contact for procurement, right-partner sourcing and consulting in the oils & fats, oleochemical and biodiesel sectors — built right, sourced smart, running profitably.
             </p>
           </AnimSection>
         </div>
@@ -113,11 +106,6 @@ export default function ServicesPage() {
             {services.map((s, i) => (
               <AnimSection key={i} delay={i * 0.1}>
                 <div id={s.id} className={`bg-white p-8 flex flex-col lg:flex-row gap-8 ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
-                  <div className="lg:w-1/6 flex items-start justify-center">
-                    <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                      <img src={s.icon} alt="" className="w-10 h-10 invert" onError={e => { e.target.style.display = 'none' }} />
-                    </div>
-                  </div>
                   <div className="flex-1">
                     <h3 className="text-[24px] font-bold text-blubrand mb-4">{s.title}</h3>
                     <p className="text-[13px] text-body leading-[21px] mb-5">{s.desc}</p>
@@ -141,16 +129,16 @@ export default function ServicesPage() {
       <section className="py-[70px] bg-primary text-center">
         <div className="container mx-auto px-4 max-w-4xl">
           <AnimSection>
-            <h2 className="text-[30px] font-bold text-white mb-4">Need Service Support?</h2>
+            <h2 className="text-[30px] font-bold text-white mb-4">Planning a Project?</h2>
             <p className="text-[15px] text-white/80 mb-8">
-              Contact our service team for prompt assistance with your plant.
+              Talk to us about your plant, expansion or sourcing requirement — we'll help you find the right way forward.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+91-0124-4700800"
+                href="tel:+919896369557"
                 className="inline-flex items-center gap-2 bg-accent text-black font-bold px-8 py-4 hover:bg-accent-dark transition-colors"
               >
-                📞 +91-(0124)-4700800
+                📞 +91 98963 69557
               </a>
               <Link
                 to="/enquiry"

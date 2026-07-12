@@ -1,8 +1,20 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { navLinks, mobileNavLinks } from '../../data/navigation'
-import setuLogoDark from '../../assets/setu_logo_dark.png'
 import setuLogoReal from '../../assets/setu_logo_real.png'
+
+function Chevron({ open }) {
+  return (
+    <svg
+      className={`w-3 h-3 ml-1.5 inline-block transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
+      viewBox="0 0 12 12"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
 
 export default function Navbar() {
   const [sticky, setSticky] = useState(false)
@@ -10,8 +22,6 @@ export default function Navbar() {
   const [activeMega, setActiveMega] = useState(null)
   const [activeDropdown, setActiveDropdown] = useState(null)
   const location = useLocation()
-  const isHome = location.pathname === '/'
-  const megaRef = useRef(null)
 
   useEffect(() => {
     const onScroll = () => setSticky(window.scrollY > 50)
@@ -21,6 +31,8 @@ export default function Navbar() {
 
   useEffect(() => {
     setMobileOpen(false)
+    setActiveMega(null)
+    setActiveDropdown(null)
   }, [location.pathname])
 
   useEffect(() => {
@@ -28,17 +40,18 @@ export default function Navbar() {
     return () => document.body.classList.remove('nav-open')
   }, [mobileOpen])
 
-  const navTextColor = sticky ? 'text-black' : 'text-white'
-  const logoColor = sticky ? 'text-[#0077B5]' : 'text-white'
-  const lineColor = sticky ? 'bg-black' : 'bg-white'
+  const linkBase =
+    'relative flex items-center px-[15px] py-[24px] text-[12.5px] uppercase tracking-[2px] font-semibold text-[#003055] transition-colors hover:text-[#0077B5] ' +
+    "after:content-[''] after:absolute after:left-[15px] after:right-[15px] after:bottom-[16px] after:h-[2px] after:bg-[#0077B5] after:rounded-full " +
+    'after:origin-left after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100'
 
   return (
     <header className={sticky ? 'sticky' : ''}>
-      <div className="px-[35px] flex items-center justify-between relative z-10">
+      <div className="glass-bar px-[35px] flex items-center justify-between relative z-10">
         {/* Logo */}
-        <Link to="/" className={`navbar-brand font-bold text-xl tracking-wider ${logoColor} flex-shrink-0`}>
+        <Link to="/" className="navbar-brand flex-shrink-0">
           <img
-            src={sticky ? setuLogoReal : setuLogoDark}
+            src={setuLogoReal}
             alt="Setu Industrial Partners"
             className="h-12 w-auto py-1"
           />
@@ -61,70 +74,71 @@ export default function Navbar() {
                 }}
               >
                 {item.type === 'link' ? (
-                  <Link
-                    to={item.href}
-                    className={`block px-[15px] py-[25px] text-[13px] uppercase tracking-[2.74px] font-normal transition-colors ${navTextColor} hover:text-accent`}
-                  >
+                  <Link to={item.href} className={linkBase}>
                     {item.label}
                   </Link>
                 ) : (
-                  <button
-                    className={`block px-[15px] py-[25px] text-[13px] uppercase tracking-[2.74px] font-normal transition-colors ${navTextColor} hover:text-accent-DEFAULT bg-transparent border-0 cursor-pointer`}
-                  >
+                  <button className={`${linkBase} bg-transparent border-0 cursor-pointer`}>
                     {item.label}
+                    <Chevron open={(item.type === 'mega' ? activeMega : activeDropdown) === idx} />
                   </button>
                 )}
 
                 {/* Simple Dropdown */}
                 {item.type === 'dropdown' && activeDropdown === idx && (
-                  <div className="absolute top-full left-0 bg-primary min-w-[220px] py-[20px] border-t-2 border-accent-DEFAULT z-[9999]">
-                    {item.items.map((sub, si) => (
-                      <div key={si} className="px-5">
-                        {sub.external ? (
-                          <a
-                            href={sub.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block py-2.5 text-sm text-white border-b border-white/10 hover:text-[#FFDD00] last:border-0"
-                          >
-                            {sub.label}
-                          </a>
-                        ) : (
-                          <Link
-                            to={sub.href}
-                            className="block py-2.5 text-sm text-white border-b border-white/10 hover:text-[#FFDD00] last:border-0"
-                          >
-                            {sub.label}
-                          </Link>
-                        )}
-                      </div>
-                    ))}
+                  <div className="absolute top-full left-0 pt-2 z-[9999]">
+                    <div className="bg-white/95 backdrop-blur-xl min-w-[240px] py-3 rounded-2xl shadow-[0_20px_50px_rgba(0,48,85,0.18)] ring-1 ring-black/5 overflow-hidden animate-menuIn">
+                      {item.items.map((sub, si) => (
+                        <div key={si} className="px-2">
+                          {sub.external ? (
+                            <a
+                              href={sub.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="block px-4 py-2.5 text-sm text-[#292929] rounded-lg hover:bg-[#0077B5]/[0.07] hover:text-[#0077B5] transition-colors"
+                            >
+                              {sub.label}
+                            </a>
+                          ) : (
+                            <Link
+                              to={sub.href}
+                              className="block px-4 py-2.5 text-sm text-[#292929] rounded-lg hover:bg-[#0077B5]/[0.07] hover:text-[#0077B5] transition-colors"
+                            >
+                              {sub.label}
+                            </Link>
+                          )}
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 )}
 
                 {/* Mega Menu */}
                 {item.type === 'mega' && activeMega === idx && (
-                  <div className="fixed left-0 top-auto w-full bg-primary border-t-2 border-accent-DEFAULT z-[9999] py-8 px-8 shadow-2xl">
-                    <div className="max-w-7xl mx-auto grid grid-cols-7 gap-6">
-                      {item.columns.map((col, ci) => (
-                        <div key={ci}>
-                          <h4 className="text-[#FFB300] text-xs font-bold uppercase tracking-wider mb-3 pb-2 border-b border-white/20">
-                            {col.title}
-                          </h4>
-                          <ul>
-                            {col.items.map((sub, si) => (
-                              <li key={si}>
-                                <Link
-                                  to={sub.href}
-                                  className="block py-1 text-xs text-white hover:text-[#FFDD00] transition-colors"
-                                >
-                                  {sub.label}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
+                  <div className="fixed left-1/2 -translate-x-1/2 top-auto pt-2 z-[9999] w-[min(1240px,calc(100vw-48px))]">
+                    <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_30px_70px_rgba(0,48,85,0.22)] ring-1 ring-black/5 py-8 px-9 animate-menuIn">
+                      <div className="grid grid-cols-6 gap-x-8 gap-y-6">
+                        {item.columns.map((col, ci) => (
+                          <div key={ci}>
+                            <h4 className="text-[#0077B5] text-[11px] font-bold uppercase tracking-[1.5px] mb-3 pb-2 border-b-2 border-[#FFB300]/70">
+                              {col.title}
+                            </h4>
+                            <ul>
+                              {col.items.map((sub, si) => (
+                                <li key={si}>
+                                  <Link
+                                    to={sub.href}
+                                    className="group flex items-center gap-0 py-[5px] text-[12.5px] text-[#4a5568] hover:text-[#003055] transition-all"
+                                  >
+                                    <span className="w-0 group-hover:w-2.5 h-[2px] bg-[#FFB300] rounded-full transition-all duration-200 group-hover:mr-1.5" />
+                                    {sub.label}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 )}
@@ -138,9 +152,9 @@ export default function Navbar() {
                 className="relative p-[19px_0] w-[30px] cursor-pointer bg-transparent border-0 flex flex-col justify-center items-center"
                 aria-label="Menu"
               >
-                <span className={`line ${lineColor} block w-[25px] h-[2px] mb-[7px] rounded-lg transition-all duration-700 ${mobileOpen ? 'rotate-45 translate-y-[9px]' : ''}`} />
-                <span className={`line ${lineColor} block w-[25px] h-[2px] mb-[7px] rounded-lg transition-all duration-700 ${mobileOpen ? 'opacity-0 translate-x-[21px]' : ''}`} />
-                <span className={`line ${lineColor} block w-[25px] h-[2px] rounded-lg transition-all duration-700 ${mobileOpen ? '-rotate-45 -translate-y-[9px]' : ''}`} />
+                <span className={`line block w-[25px] h-[2px] mb-[7px] rounded-lg transition-all duration-700 ${mobileOpen ? 'rotate-45 translate-y-[9px]' : ''}`} />
+                <span className={`line block w-[25px] h-[2px] mb-[7px] rounded-lg transition-all duration-700 ${mobileOpen ? 'opacity-0 translate-x-[21px]' : ''}`} />
+                <span className={`line block w-[25px] h-[2px] rounded-lg transition-all duration-700 ${mobileOpen ? '-rotate-45 -translate-y-[9px]' : ''}`} />
               </button>
             </li>
           </ul>
@@ -152,30 +166,30 @@ export default function Navbar() {
           className="lg:hidden p-2 cursor-pointer bg-transparent border-0"
           aria-label="Menu"
         >
-          <span className={`line ${lineColor} block w-[25px] h-[2px] mb-[7px] rounded-lg transition-all duration-700 ${mobileOpen ? 'rotate-45 translate-y-[9px]' : ''}`} />
-          <span className={`line ${lineColor} block w-[25px] h-[2px] mb-[7px] rounded-lg transition-all duration-700 ${mobileOpen ? 'opacity-0' : ''}`} />
-          <span className={`line ${lineColor} block w-[25px] h-[2px] rounded-lg transition-all duration-700 ${mobileOpen ? '-rotate-45 -translate-y-[9px]' : ''}`} />
+          <span className={`line block w-[25px] h-[2px] mb-[7px] rounded-lg transition-all duration-700 ${mobileOpen ? 'rotate-45 translate-y-[9px]' : ''}`} />
+          <span className={`line block w-[25px] h-[2px] mb-[7px] rounded-lg transition-all duration-700 ${mobileOpen ? 'opacity-0' : ''}`} />
+          <span className={`line block w-[25px] h-[2px] rounded-lg transition-all duration-700 ${mobileOpen ? '-rotate-45 -translate-y-[9px]' : ''}`} />
         </button>
       </div>
 
       {/* Mobile Slide-in Nav */}
       <div
-        className={`fixed right-0 top-0 bg-primary w-[340px] h-screen z-[1000] flex flex-col justify-center items-start px-10 transition-all duration-[900ms] ${mobileOpen ? 'translate-x-0 opacity-100' : 'translate-x-[340px] opacity-0'}`}
+        className={`fixed right-0 top-0 bg-white/90 backdrop-blur-2xl w-[340px] h-screen z-[1000] flex flex-col justify-center items-start px-10 shadow-[-20px_0_60px_rgba(0,48,85,0.15)] ${mobileOpen ? 'translate-x-0 opacity-100' : 'translate-x-[340px] opacity-0'}`}
         style={{ transition: 'all 900ms cubic-bezier(0.9, 0, 0.33, 1)' }}
       >
         <button
           onClick={() => setMobileOpen(false)}
-          className="absolute top-6 right-6 text-white text-2xl bg-transparent border-0 cursor-pointer"
+          className="absolute top-6 right-6 text-[#003055] text-2xl bg-transparent border-0 cursor-pointer"
           aria-label="Close menu"
         >
           ✕
         </button>
-        <ul className="w-full border-t border-b border-[#FFDD00] py-10 relative before:content-[''] before:absolute before:-top-1 before:left-0 before:w-[66px] before:h-1 before:bg-[#FFDD00]">
+        <ul className="w-full border-t border-b border-[#0077B5]/20 py-10 relative before:content-[''] before:absolute before:-top-[2px] before:left-0 before:w-[66px] before:h-[3px] before:bg-[#FFB300] before:rounded-full">
           {mobileNavLinks.map((item, i) => (
             <li key={i} className="mb-6">
               <Link
                 to={item.href}
-                className="text-white hover:text-[#FFDD00] text-base font-normal"
+                className="text-[#003055] hover:text-[#0077B5] text-base font-semibold tracking-wide"
                 onClick={() => setMobileOpen(false)}
               >
                 {item.label}

@@ -187,7 +187,6 @@ export default function HomePage() {
               <strong>leading Oil Processing Plant Manufacturers & Suppliers globally.</strong>{' '}
               <em>We are into manufacturing of customized plant & machinery, turnkey projects for Oil & Fats Industry.</em>
             </blockquote>
-            <ViewMoreArrow href="/infrastructure" className="mt-6 mx-auto justify-center" />
           </AnimSection>
         </div>
       </section>

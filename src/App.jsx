@@ -10,7 +10,7 @@ import HomePage from './pages/HomePage'
 const AboutPage = lazy(() => import('./pages/AboutPage'))
 const WhyMectechPage = lazy(() => import('./pages/WhyMectechPage'))
 const PeoplePage = lazy(() => import('./pages/PeoplePage'))
-const InfrastructurePage = lazy(() => import('./pages/InfrastructurePage'))
+// const InfrastructurePage = lazy(() => import('./pages/InfrastructurePage'))
 const SustainabilityPage = lazy(() => import('./pages/SustainabilityPage'))
 const TechnologyPage = lazy(() => import('./pages/TechnologyPage'))
 const TechnologyDetailPage = lazy(() => import('./pages/TechnologyDetailPage'))
@@ -19,7 +19,7 @@ const ClientsPage = lazy(() => import('./pages/ClientsPage'))
 const EnquiryPage = lazy(() => import('./pages/EnquiryPage'))
 const BlogPage = lazy(() => import('./pages/BlogPage'))
 const MediaPage = lazy(() => import('./pages/MediaPage'))
-const VideoPage = lazy(() => import('./pages/VideoPage'))
+// const VideoPage = lazy(() => import('./pages/VideoPage'))
 // const CareerPage = lazy(() => import('./pages/CareerPage'))
 
 function Loading() {
@@ -63,7 +63,7 @@ export default function App() {
             {/* <Route path="/about-us" element={<AboutPage />} /> */}
             {/* <Route path="/why-mectech" element={<WhyMectechPage />} /> */}
             <Route path="/people" element={<PeoplePage />} />
-            <Route path="/infrastructure" element={<InfrastructurePage />} />
+            {/* <Route path="/infrastructure" element={<InfrastructurePage />} /> */}
             <Route path="/sustainablity" element={<SustainabilityPage />} />
             <Route path="/technology" element={<TechnologyPage />} />
             <Route path="/services-support" element={<ServicesPage />} />
@@ -71,7 +71,7 @@ export default function App() {
             <Route path="/enquiry" element={<EnquiryPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/media" element={<MediaPage />} />
-            <Route path="/video" element={<VideoPage />} />
+            {/* <Route path="/video" element={<VideoPage />} /> */}
             {/* <Route path="/career" element={<CareerPage />} /> */}
             {/* Tech detail pages via dynamic route */}
             <Route path="/:slug" element={<TechnologyDetailPage />} />
