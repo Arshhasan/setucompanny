@@ -117,7 +117,7 @@ export const mobileNavLinks = [
   // { label: 'Sustainability', href: '/sustainablity' },
   // { label: 'Our Top Clients', href: '/clients' },
   { label: 'Contact Us', href: '/enquiry' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Media', href: '/media' },
+  // { label: 'Blog', href: '/blog' },
+  // { label: 'Media', href: '/media' },
   // { label: 'Career', href: '/career' },
 ]

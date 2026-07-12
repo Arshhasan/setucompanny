@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { navLinks, mobileNavLinks } from '../../data/navigation'
+import { navLinks } from '../../data/navigation'
 import setuLogoReal from '../../assets/setu_logo_real.png'
 
 function Chevron({ open }) {
@@ -21,6 +21,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [activeMega, setActiveMega] = useState(null)
   const [activeDropdown, setActiveDropdown] = useState(null)
+  const [mobileExpand, setMobileExpand] = useState(null)
   const location = useLocation()
 
   useEffect(() => {
@@ -33,6 +34,7 @@ export default function Navbar() {
     setMobileOpen(false)
     setActiveMega(null)
     setActiveDropdown(null)
+    setMobileExpand(null)
   }, [location.pathname])
 
   useEffect(() => {
@@ -174,7 +176,7 @@ export default function Navbar() {
 
       {/* Mobile Slide-in Nav */}
       <div
-        className={`fixed right-0 top-0 bg-white/90 backdrop-blur-2xl w-[340px] h-screen z-[1000] flex flex-col justify-center items-start px-10 shadow-[-20px_0_60px_rgba(12,59,46,0.15)] ${mobileOpen ? 'translate-x-0 opacity-100' : 'translate-x-[340px] opacity-0'}`}
+        className={`fixed right-0 top-0 bg-white/90 backdrop-blur-2xl w-[340px] h-screen z-[1000] flex flex-col items-start px-10 pt-20 pb-10 overflow-y-auto shadow-[-20px_0_60px_rgba(12,59,46,0.15)] ${mobileOpen ? 'translate-x-0 opacity-100' : 'translate-x-[340px] opacity-0'}`}
         style={{ transition: 'all 900ms cubic-bezier(0.9, 0, 0.33, 1)' }}
       >
         <button
@@ -184,16 +186,76 @@ export default function Navbar() {
         >
           ✕
         </button>
-        <ul className="w-full border-t border-b border-[#1E9E5F]/20 py-10 relative before:content-[''] before:absolute before:-top-[2px] before:left-0 before:w-[66px] before:h-[3px] before:bg-[#FFB300] before:rounded-full">
-          {mobileNavLinks.map((item, i) => (
-            <li key={i} className="mb-6">
-              <Link
-                to={item.href}
-                className="text-[#0C3B2E] hover:text-[#1E9E5F] text-base font-semibold tracking-wide"
-                onClick={() => setMobileOpen(false)}
-              >
-                {item.label}
-              </Link>
+        <ul className="w-full border-t border-b border-[#1E9E5F]/20 py-8 relative before:content-[''] before:absolute before:-top-[2px] before:left-0 before:w-[66px] before:h-[3px] before:bg-[#FFB300] before:rounded-full">
+          <li className="mb-5">
+            <Link
+              to="/"
+              className="text-[#0C3B2E] hover:text-[#1E9E5F] text-base font-semibold tracking-wide"
+              onClick={() => setMobileOpen(false)}
+            >
+              Home
+            </Link>
+          </li>
+          {navLinks.map((item, i) => (
+            <li key={i} className="mb-5">
+              {item.type === 'link' ? (
+                <Link
+                  to={item.href}
+                  className="text-[#0C3B2E] hover:text-[#1E9E5F] text-base font-semibold tracking-wide"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <>
+                  <button
+                    onClick={() => setMobileExpand(mobileExpand === i ? null : i)}
+                    className="flex items-center justify-between w-full bg-transparent border-0 cursor-pointer p-0 text-[#0C3B2E] hover:text-[#1E9E5F] text-base font-semibold tracking-wide"
+                  >
+                    {item.label}
+                    <Chevron open={mobileExpand === i} />
+                  </button>
+                  {mobileExpand === i && item.type === 'dropdown' && (
+                    <ul className="mt-3 ml-3 border-l-2 border-[#FFB300]/60 pl-4 space-y-3">
+                      {item.items.map((sub, si) => (
+                        <li key={si}>
+                          <Link
+                            to={sub.href}
+                            className="text-sm text-[#4a5568] hover:text-[#1E9E5F]"
+                            onClick={() => setMobileOpen(false)}
+                          >
+                            {sub.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {mobileExpand === i && item.type === 'mega' && (
+                    <div className="mt-3 ml-3 border-l-2 border-[#FFB300]/60 pl-4 space-y-4">
+                      {item.columns.map((col, ci) => (
+                        <div key={ci}>
+                          <h4 className="text-[#1E9E5F] text-[11px] font-bold uppercase tracking-[1.5px] mb-2">
+                            {col.title}
+                          </h4>
+                          <ul className="space-y-2">
+                            {col.items.map((sub, si) => (
+                              <li key={si}>
+                                <Link
+                                  to={sub.href}
+                                  className="text-sm text-[#4a5568] hover:text-[#1E9E5F]"
+                                  onClick={() => setMobileOpen(false)}
+                                >
+                                  {sub.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </>
+              )}
             </li>
           ))}
         </ul>
